@@ -1,0 +1,13 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+design_*.html
+mcp_*.json
+stitch_*.json
+screens_*.json
+screen_*.json
