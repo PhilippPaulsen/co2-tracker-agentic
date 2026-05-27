@@ -164,6 +164,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Event-Listener binden
     bindEvents();
 
+    // 4.5. Dynamische Aktivierung von CSS-Animationen bei ?animated=true oder ?anim=true
+    const urlParams = new URLSearchParams(window.location.search);
+    const enableAnimations = urlParams.has("animated") || urlParams.has("anim");
+    if (enableAnimations) {
+        // Warnleiste
+        const alertBar = document.querySelector("main > div");
+        if (alertBar) alertBar.classList.add("entrance-anim");
+        
+        // Sections
+        const sections = document.querySelectorAll("section");
+        sections.forEach((sec, idx) => {
+            sec.classList.add("entrance-anim", `delay-${idx + 1}`);
+        });
+        
+        // Output Panel
+        const outputPanel = document.querySelector(".result-glow");
+        if (outputPanel) outputPanel.classList.add("entrance-anim", "delay-4");
+    }
+
     // 5. Erstes Rendering ausführen
     updateAndRender();
 
