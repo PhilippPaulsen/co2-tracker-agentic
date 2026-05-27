@@ -39,16 +39,18 @@ function updateAndRender() {
         (activeState.transport.carKm || 0) * EMISSION_FACTORS.transport.car +
         (activeState.transport.publicTransportKm || 0) * EMISSION_FACTORS.transport.publicTransport;
 
-    const living = 
+    const diet = 
         (activeState.diet.meatRichDays || 0) * EMISSION_FACTORS.diet.meatRich +
-        (activeState.diet.veganDays || 0) * EMISSION_FACTORS.diet.vegan +
+        (activeState.diet.veganDays || 0) * EMISSION_FACTORS.diet.vegan;
+
+    const living = 
         (activeState.consumption.electricityKWh || 0) * EMISSION_FACTORS.consumption.electricity;
 
     // 2. Gesamtberechnung aus Store
     const total = calculateTotalCO2(activeState);
 
     // 3. UI rendern
-    renderCalculation(total, traffic, living);
+    renderCalculation(total, traffic, diet, living);
 
     // 4. Automatisches Speichern bei jeder Zustandsänderung (UX Auto-Save)
     saveToLocalStorage(activeState);

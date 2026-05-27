@@ -21,6 +21,7 @@ export const elements = {
     // Result Displays
     totalCO2: document.getElementById("total-co2"),
     trafficCO2: document.getElementById("traffic-co2"),
+    dietCO2: document.getElementById("diet-co2"),
     livingCO2: document.getElementById("living-co2"),
 
     // Tab Navigation
@@ -51,9 +52,10 @@ export function getInputValue(inputEl) {
  * 
  * @param {number} total - Gesamt-CO2 in kg
  * @param {number} traffic - CO2-Anteil Verkehr
- * @param {number} living - CO2-Anteil Wohnen/Konsum
+ * @param {number} diet - CO2-Anteil Ernährung
+ * @param {number} living - CO2-Anteil Wohnen/Konsum (Strom)
  */
-export function renderCalculation(total, traffic, living) {
+export function renderCalculation(total, traffic, diet, living) {
     // Verwende ausschließlich textContent zur Vermeidung von XSS
     if (elements.totalCO2) {
         elements.totalCO2.textContent = total.toLocaleString("de-DE", {
@@ -63,6 +65,9 @@ export function renderCalculation(total, traffic, living) {
     }
     if (elements.trafficCO2) {
         elements.trafficCO2.textContent = `${traffic.toFixed(1)}kg`;
+    }
+    if (elements.dietCO2) {
+        elements.dietCO2.textContent = `${diet.toFixed(1)}kg`;
     }
     if (elements.livingCO2) {
         elements.livingCO2.textContent = `${living.toFixed(1)}kg`;

@@ -230,34 +230,49 @@
                 <div class="absolute top-0 right-0 p-2 opacity-5 animate-pulse">
                     <span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">calculate</span>
                 </div>
-                <div class="relative z-10">
-                    <p class="font-data-label text-data-label text-primary-container uppercase mb-1 flex items-center gap-2">
+                <div class="relative z-10 space-y-2">
+                    <p class="font-data-label text-data-label text-primary-container uppercase tracking-widest mb-0.5 flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
-                        COMPUTATION_RESULT
+                        CO2 COMPUTATION UNIT
                     </p>
+                    <h3 class="font-headline-md text-[24px] text-white italic">Datenstrom & Bilanz</h3>
+                    <p class="font-code-sm text-[12px] text-white/50 leading-relaxed border-b border-white/10 pb-3">
+                        Lokaler State wird fortlaufend verarbeitet. Mathematische Formel: 
+                        <code class="text-primary bg-white/5 px-1 py-0.5 rounded font-mono text-[11px] font-bold">calculateTotalCO2()</code>
+                    </p>
+                </div>
+                <div class="relative z-10 py-2">
+                    <span class="font-data-label text-white/40 block text-xs uppercase tracking-widest mb-1">TOTAL_CALCULATED_FOOTPRINT</span>
                     <div class="flex items-baseline gap-2">
                         <span id="total-co2" class="font-code-sm text-[56px] font-bold leading-none tracking-tighter">0.00</span>
                         <span class="font-headline-md text-white/60 italic">kg CO2e</span>
                     </div>
-                    <p class="font-code-sm text-[12px] text-white/40 mt-2 uppercase tracking-widest border-t border-white/10 pt-2">DAILY_ESTIMATED_FOOTPRINT</p>
                 </div>
-                <div class="grid grid-cols-2 gap-y-2 relative z-10 pt-2">
-                    <div class="flex justify-between border-r border-white/10 pr-4">
-                        <span class="font-data-label text-on-surface-variant">TRAFFIC</span>
-                        <span id="traffic-co2" class="font-code-sm text-primary">0.0kg</span>
+                <div class="space-y-2 relative z-10 pt-2 border-t border-white/10">
+                    <div class="flex justify-between items-center bg-white/5 px-3 py-2 border border-white/5 rounded-sm">
+                        <span class="font-data-label text-on-surface-variant">01 / TRANSPORT</span>
+                        <span id="traffic-co2" class="font-code-sm text-primary font-bold">0.0kg</span>
                     </div>
-                    <div class="flex justify-between pl-4">
-                        <span class="font-data-label text-on-surface-variant">LIVING</span>
-                        <span id="living-co2" class="font-code-sm text-primary">0.0kg</span>
+                    <div class="flex justify-between items-center bg-white/5 px-3 py-2 border border-white/5 rounded-sm">
+                        <span class="font-data-label text-on-surface-variant">02 / DIETARY (DIET)</span>
+                        <span id="diet-co2" class="font-code-sm text-primary font-bold">0.0kg</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-white/5 px-3 py-2 border border-white/5 rounded-sm">
+                        <span class="font-data-label text-on-surface-variant">03 / ELECTRICITY</span>
+                        <span id="living-co2" class="font-code-sm text-primary font-bold">0.0kg</span>
                     </div>
                 </div>
-                <div class="flex gap-2 relative z-10 pt-4">
+                <div class="flex gap-2 relative z-10 pt-2">
                     <button class="flex-1 py-3 border border-white text-white font-ui-label uppercase hover:bg-primary-container hover:border-primary-container hover:text-black transition-all active:scale-95 interactive-element" id="btn-manual-save">
                         SAVE_STATE
                     </button>
                     <button class="px-6 py-3 border border-white/20 text-white/60 font-ui-label uppercase hover:border-error hover:text-error transition-all active:scale-95 interactive-element" id="btn-reset">
                         RESET
                     </button>
+                </div>
+                <div class="relative z-10 flex justify-center items-center gap-1.5 text-[10px] text-white/40 font-code-sm bg-black/25 py-2 rounded-sm border border-white/5">
+                    <span class="material-symbols-outlined text-[12px]">hard_drive</span>
+                    AUTO_SAVED_ON_CHANGES
                 </div>
             </div>
         </div>
